@@ -4,8 +4,8 @@ using namespace std;
 
 int main(){
     double n, percentage[100];
-	double temp; 
-	
+	double temp;
+
     cin >> n;
 
     for(int i=0; i<n; i++){
