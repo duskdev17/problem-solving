@@ -2,9 +2,16 @@
 using namespace std;
 
 int main(){
-  int n=100;
-  for(int i=0; i<n; i++){
-    cout << "Hello World";
-  }
+	int n=0;
 
+  cout << "Enter the upper bound: ";
+  cin >> n; 
+
+  for(int i=2; i<=n; i++){
+    if(n%i!=0){
+      cout << i << "  ";
+    }
+  }
+  
+  
 }
