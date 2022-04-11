@@ -5,6 +5,7 @@ int main()
 {
 	string line;
 	
+	cout << "Enter String to check: ";
 	cin >> line;
 
 	if (line[0] == '/' && line[1] == '/' && line[2] != '/') {

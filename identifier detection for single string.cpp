@@ -5,6 +5,7 @@ using namespace std;
 int main(){
 	string str;
 	
+	cout << "Enter String to check: ";
 	cin >> str;
 	
 	if((str[0]>='a' && str[0]<='z') || str[0]>='A' && str[0]<='Z' || str[0] == '_'){
