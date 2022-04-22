@@ -1,0 +1,5 @@
+Product of Array 1 and Array 2: 
+1496  1058  
+
+140  735  
+
