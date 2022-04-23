@@ -1,3 +1,4 @@
+
 #include<iostream>
 #include<cstdlib>
 #include<ctime>
@@ -11,7 +12,8 @@ void arrayTranspose(int (*arr1)[size], int (*arr2)[size], int row, int col);
 
 
 int main(){
-	int option = 0, row=0, col=0, upper = 50, lower = 0;
+	char option;
+	int row=0, col=0, upper = 50, lower = 0;
 	int arr1[size][size], arr2[size][size];
 	
 	
@@ -23,7 +25,7 @@ int main(){
 		
 		cin >> option;
 		
-		if(option == 1){
+		if(option == 'P' || option == 'p'){
 			cin >> row >> col;
 				
 			srand(time(0));	
@@ -60,7 +62,7 @@ int main(){
 		
 		
 		
-		else if(option ==  2){
+		else if(option == 'S' || option == 's'){
 			cin >> row >> col;
 			
 			srand(time(0));	
@@ -94,7 +96,7 @@ int main(){
 			
 			arraySum(arr1, arr2, row, col);
 		}
-		else if(option == 3){
+		else if(option == 'T' || option == 't'){
 			cin >> row >> col;
 			
 			srand(time(0));	
@@ -129,7 +131,9 @@ int main(){
 			arrayTranspose(arr1, arr2, row, col);
 		}
 			
-	}while(option != 4);
+	}while(option != 'E' && option != 'e');
+	
+	system("PAUSE");
 	
 }
 
