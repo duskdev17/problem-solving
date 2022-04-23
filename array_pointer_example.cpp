@@ -1,19 +1,19 @@
-#include <iostream>
-
-using namespace std;
-
-void display(int **arr, int m, int n)
+#include <stdio.h>
+void print(int *arr, int m, int n)
 {
-    for(int i=0; i<m; i++)
-        for(int j=0; j<n; j++)
-            cout << *(*(arr+i)+j) << " " << arr[i][j] << endl;
+	int i, j;
+	for (i = 0; i < m; i++)
+	for (j = 0; j < n; j++)
+		printf("%d ", *((arr+i*n) + j));
 }
 
 int main()
 {
-    int arr[][3] = {{1,2,3},{4,5,6}};
-    int *temp[2];
-    for(int i=0; i<2; i++)
-        temp[i] = *(arr+i);
-    display(temp,2,3);
+	int arr[][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+	int m = 3, n = 3;
+
+	// We can also use "print(&arr[0][0], m, n);"
+	print((int *)arr, m, n);
+	return 0;
 }
+

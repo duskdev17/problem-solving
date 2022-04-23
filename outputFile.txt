@@ -1,5 +1,8 @@
-Product of Array 1 and Array 2: 
-1496  1058  
+Transpose of Array 1: 
+5  14  
+32  40  
 
-140  735  
+Transpose of Array 2: 
+33  11  
+19  23  
 

@@ -5,9 +5,9 @@
 #define size 100
 using namespace std;
 
-void arrayProduct(int arr1[size][size], int arr2[size][size], int row, int col);
-void arraySum(int arr1[size][size], int arr2[size][size], int row, int col);
-void arrayTranspose(int arr1[size][size], int arr2[size][size], int row, int col);
+void arrayProduct(int (*arr1)[size], int (*arr2)[size], int row, int col);
+void arraySum(int (*arr1)[size], int (*arr2)[size], int row, int col);
+void arrayTranspose(int (*arr1)[size], int (*arr2)[size], int row, int col);
 
 
 int main(){
@@ -57,6 +57,9 @@ int main(){
 							
 			arrayProduct(arr1, arr2, row, col);
 		}
+		
+		
+		
 		else if(option ==  2){
 			cin >> row >> col;
 			
@@ -130,7 +133,7 @@ int main(){
 	
 }
 
-void arrayProduct(int arr1[size][size], int arr2[size][size], int row, int col){
+void arrayProduct(int (*arr1)[size], int (*arr2)[size], int row, int col){
 	int prod[100][100];
 	
 	for(int i=0; i<row; i++){
@@ -173,7 +176,7 @@ void arrayProduct(int arr1[size][size], int arr2[size][size], int row, int col){
 	     
 }
 
-void arraySum(int arr1[100][100], int arr2[100][100], int row, int col){
+void arraySum(int (*arr1)[size], int (*arr2)[size], int row, int col){
 	int sum[100][100];
 	
 	for(int i=0; i<row; i++){
@@ -215,7 +218,7 @@ void arraySum(int arr1[100][100], int arr2[100][100], int row, int col){
 	}   
 }
 
-void arrayTranspose(int arr1[100][100], int arr2[100][100], int row, int col){	
+void arrayTranspose(int (*arr1)[size], int (*arr2)[size], int row, int col){	
 	int transpose1[100][100], transpose2[100][100];
 	
 	
