@@ -29,8 +29,7 @@ int k;
 char ck;
 int e;
 
-int main(int argc, char **argv)
-{
+int main(){
 	int jm = 0;
 	int km = 0;
 	int i, choice;
@@ -57,10 +56,10 @@ int main(int argc, char **argv)
 			calc_first[k][kay] = '!';
 		}
 	}
+	
 	int point1 = 0, point2, xxx;
 	
-	for(k = 0; k < count; k++)
-	{
+	for(k = 0; k < count; k++){
 		c = production[k][0];
 		point2 = 0;
 		xxx = 0;
@@ -89,14 +88,13 @@ int main(int argc, char **argv)
 			
 			for(lark = 0; lark < point2; lark++) {
 				
-				if (first[i] == calc_first[point1][lark])
-				{
+				if (first[i] == calc_first[point1][lark])				{
 					chk = 1;
 					break;
 				}
 			}
-			if(chk == 0)
-			{
+			
+			if(chk == 0)			{
 				printf("%c, ", first[i]);
 				calc_first[point1][point2++] = first[i];
 			}
@@ -105,6 +103,7 @@ int main(int argc, char **argv)
 		jm = n;
 		point1++;
 	}
+	
 	printf("\n");
 	printf("-----------------------------------------------\n\n");
 	char donee[count];
@@ -118,8 +117,7 @@ int main(int argc, char **argv)
 	}
 	point1 = 0;
 	int land = 0;
-	for(e = 0; e < count; e++)
-	{
+	for(e = 0; e < count; e++)	{
 		ck = production[e][0];
 		point2 = 0;
 		xxx = 0;
@@ -146,28 +144,26 @@ int main(int argc, char **argv)
 		// Printing the Follow Sets of the grammar
 		for(i = 0 + km; i < m; i++) {
 			int lark = 0, chk = 0;
-			for(lark = 0; lark < point2; lark++)
-			{
-				if (f[i] == calc_follow[point1][lark])
-				{
+			for(lark = 0; lark < point2; lark++)		{
+				if (f[i] == calc_follow[point1][lark])				{
 					chk = 1;
 					break;
 				}
 			}
-			if(chk == 0)
-			{
+			
+			if(chk == 0)			{
 				printf("%c, ", f[i]);
 				calc_follow[point1][point2++] = f[i];
 			}
 		}
+		
 		printf(" }\n\n");
 		km = m;
 		point1++;
 	}
 }
 
-void follow(char c)
-{
+void follow(char c){
 	int i, j;
 	
 	// Adding "$" to the follow
@@ -175,21 +171,17 @@ void follow(char c)
 	if(production[0][0] == c) {
 		f[m++] = '$';
 	}
-	for(i = 0; i < 10; i++)
-	{
-		for(j = 2;j < 10; j++)
-		{
-			if(production[i][j] == c)
-			{
-				if(production[i][j+1] != '\0')
-				{
+	
+	for(i = 0; i < 10; i++)	{
+		for(j = 2;j < 10; j++)		{
+			if(production[i][j] == c)			{
+				if(production[i][j+1] != '\0')			{
 					// Calculate the first of the next
 					// Non-Terminal in the production
 					followfirst(production[i][j+1], i, (j+2));
 				}
 				
-				if(production[i][j+1]=='\0' && c!=production[i][0])
-				{
+				if(production[i][j+1]=='\0' && c!=production[i][0])				{
 					// Calculate the follow of the Non-Terminal
 					// in the L.H.S. of the production
 					follow(production[i][0]);
@@ -199,8 +191,7 @@ void follow(char c)
 	}
 }
 
-void findfirst(char c, int q1, int q2)
-{
+void findfirst(char c, int q1, int q2){
 	int j;
 	
 	// The case where we
@@ -208,30 +199,24 @@ void findfirst(char c, int q1, int q2)
 	if(!(isupper(c))) {
 		first[n++] = c;
 	}
-	for(j = 0; j < count; j++)
-	{
-		if(production[j][0] == c)
-		{
-			if(production[j][2] == '#')
-			{
+	for(j = 0; j < count; j++)	{
+		if(production[j][0] == c)		{
+			if(production[j][2] == '#')			{
 				if(production[q1][q2] == '\0')
 					first[n++] = '#';
 				else if(production[q1][q2] != '\0'
-						&& (q1 != 0 || q2 != 0))
-				{
+						&& (q1 != 0 || q2 != 0))				{
 					// Recursion to calculate First of New
 					// Non-Terminal we encounter after epsilon
 					findfirst(production[q1][q2], q1, (q2+1));
-				}
+				}				
 				else
 					first[n++] = '#';
 			}
-			else if(!isupper(production[j][2]))
-			{
+			else if(!isupper(production[j][2]))			{
 				first[n++] = production[j][2];
 			}
-			else
-			{
+			else			{
 				// Recursion to calculate First of
 				// New Non-Terminal we encounter
 				// at the beginning
@@ -241,16 +226,15 @@ void findfirst(char c, int q1, int q2)
 	}
 }
 
-void followfirst(char c, int c1, int c2)
-{
+void followfirst(char c, int c1, int c2){
 	int k;
 	
 	// The case where we encounter
 	// a Terminal
 	if(!(isupper(c)))
 		f[m++] = c;
-	else
-	{
+		
+	else	{
 		int i = 0, j = 1;
 		for(i = 0; i < count; i++)
 		{
@@ -261,22 +245,17 @@ void followfirst(char c, int c1, int c2)
 		//Including the First set of the
 		// Non-Terminal in the Follow of
 		// the original query
-		while(calc_first[i][j] != '!')
-		{
-			if(calc_first[i][j] != '#')
-			{
+		while(calc_first[i][j] != '!')		{
+			if(calc_first[i][j] != '#')			{
 				f[m++] = calc_first[i][j];
 			}
-			else
-			{
-				if(production[c1][c2] == '\0')
-				{
+			else			{
+				if(production[c1][c2] == '\0')				{
 					// Case where we reach the
 					// end of a production
 					follow(production[c1][0]);
 				}
-				else
-				{
+				else				{
 					// Recursion to the next symbol
 					// in case we encounter a "#"
 					followfirst(production[c1][c2], c1, c2+1);
