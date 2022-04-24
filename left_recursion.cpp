@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-	int n;
+	int n, count=0;
 	string str[100], leftString;
 	
 	cout << "Number of String n = ";
@@ -15,6 +15,17 @@ int main(){
 		cin >> str[i];
 	}
 	
+	cout << leftString << " -> ";
+	for(int i=0;i<n;i++){
+		cout << str[i] ;
+		if(count == n-1)
+			break;
+			cout << " | ";
+		count++;
+	}
+	
+			
+	cout << endl;
 	for(int i=0;i<n; i++){
 		
 		cout << "Production " << i+1 << ": ";
