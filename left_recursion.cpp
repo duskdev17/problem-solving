@@ -8,9 +8,8 @@ int main(){
 	
 	cout << "Number of String n = ";
 	cin >> n;
-	
-	cin >> leftString;	
-	
+
+	cin >> leftString;
 	for(int i=0;i<n; i++){
 		cin >> str[i];
 	}
@@ -23,21 +22,15 @@ int main(){
 			cout << " | ";
 		count++;
 	}
-	
-			
+				
 	cout << endl;
-	for(int i=0;i<n; i++){
-		
+	for(int i=0;i<n; i++){	
 		cout << "Production " << i+1 << ": ";
-		
 		if(str[i][0] == leftString[0]){
 			cout << "LR" << endl;
 		}
-
 		else{
 			cout << "NLR" << endl;
 		}
-	}
-	
-	
+	}	
 }
