@@ -1,10 +1,9 @@
 #include<iostream>
 using namespace std;
 
-int main()
-{
+int main() {
 	string line;
-	
+
 	cout << "Enter String to check: ";
 	cin >> line;
 
@@ -17,12 +16,12 @@ int main()
 		cout << "It is a multi-line comment";
 	}
 
-	else{
+	else {
 		cout << "It is not a comment";
 	}
 
-	
-	
+
+
 	return 0;
 }
 
