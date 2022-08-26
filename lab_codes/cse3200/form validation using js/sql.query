@@ -1,0 +1,9 @@
+CREATE TABLE reg_data (
+id INT(20) AUTO_INCREMENT,
+name VARCHAR(250),
+email VARCHAR(250),
+username VARCHAR(250),
+password VARCHAR(250),
+dob varchar(250),
+contactnumber bigint(20)
+)
