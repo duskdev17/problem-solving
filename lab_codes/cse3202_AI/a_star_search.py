@@ -151,4 +151,4 @@ adjacency_list = {
 } 
  
 graph1 = Graph(adjacency_list) 
-graph1.a_star_algorithm('Arad', 'Iasi')
+graph1.a_star_algorithm('Arad', 'Bucharest')
