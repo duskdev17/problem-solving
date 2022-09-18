@@ -71,15 +71,15 @@ int main()
     cin>>n;
 
     cout<<"Process Ids:\n";
-    for(int i=0; i<n; i++) 
+    for(int i=0; i<n; i++)
 		cin>>P[i].id;
 
     cout<<"Process Burst Times:\n";
-    for(int i=0; i<n; i++) 
+    for(int i=0; i<n; i++)
 		cin>>P[i].burst_time;
 
     cout<<"Process Arrival Times:\n";
-    for(int i=0; i<n; i++) 
+    for(int i=0; i<n; i++)
 		cin>>P[i].arrival_time;
 
     SJF();
