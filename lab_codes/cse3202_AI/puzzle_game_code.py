@@ -19,7 +19,7 @@ class Node:
                 child_node = Node(child,self.level+1,0)
                 children.append(child_node)
         return children
-        
+
     def shuffle(self,puz,x1,y1,x2,y2):
         """ Move the blank space in the given direction and if the position value are out
             of limits the return None """
@@ -32,7 +32,7 @@ class Node:
             return temp_puz
         else:
             return None
-            
+
 
     def copy(self,root):
         """ Copy function to create a similar matrix of the given node"""
@@ -42,8 +42,8 @@ class Node:
             for j in i:
                 t.append(j)
             temp.append(t)
-        return temp    
-            
+        return temp
+
     def find(self,puz,x):
         """ Specifically used to find the position of the blank space """
         for i in range(0,len(self.data)):
@@ -79,13 +79,13 @@ class Puzzle:
                 if start[i][j] != goal[i][j] and start[i][j] != '_':
                     temp += 1
         return temp
-        
+
 
     def process(self):
         """ Accept Start and Goal Puzzle state"""
         print("Enter the start state matrix \n")
         start = self.accept()
-        print("Enter the goal state matrix \n")        
+        print("Enter the goal state matrix \n")
         goal = self.accept()
 
         start = Node(start,0,0)

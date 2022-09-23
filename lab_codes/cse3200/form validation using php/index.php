@@ -48,17 +48,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$contact = $_POST["contact"];
 	  }
 
+
+	  
 	  if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
 		$error_name = "Only letters and white space allowed";
 	  }
 
-	  if (!preg_match("/^[a-zA-Z-' ]*$/",$contact)) {
+	  if (preg_match("/^[a-zA-Z-' ]*$/",$contact)) {
 		$error_contact= "Only numbers allowed";
-	  }else {
-		$contact = $_POST["contact"];
 	  }
+
+
 }
+
+
 ?>
+
+
+
+
+
+
 
 
 <!DOCTYPE html>
@@ -68,26 +78,48 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
 </head>
 <body>
+
+
 <div class="container">
+
+
 	<h1>Registration Form</h1>
 	<br>
+
 	<form action="" method="post">
+
+
 		Name: <input type="text" name="name" class="form-control">
 		<span class="text-danger"> <?php echo $error_name; ?></span><br>
+
+
 		Email: <input type="text" name="email" class="form-control">
 		<span class="text-danger"> <?php echo $error_email; ?></span><br>
+
 		UserName: <input type="text" name="username" class="form-control">
 		<span class="text-danger"> <?php echo $error_username; ?></span><br>
+
 		Password: <input type="text" name="password" class="form-control">
 		<span class="text-danger"> <?php echo $error_password; ?></span><br>
+
 		Confirm Password: <input type="text" name="confirmpassword" class="form-control">
 		<span class="text-danger"> <?php echo $error_confirmpassword; ?></span><br>
+
 		Date of Birth: <input type="date" name="dob" class="form-control">
 		<span class="text-danger"> <?php echo $error_dob; ?></span><br>
+
 		Contact Number: <input type="text" name="contact" class="form-control">
 		<span class="text-danger"> <?php echo $error_contact; ?></span><br>
+		
+
 		<button type="submit" class="btn btn-success"> SUBMIT </button>
+
+
 	</form>
+
+
 </div>
+
+
 </body>
 </html>
