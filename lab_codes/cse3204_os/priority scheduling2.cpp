@@ -10,26 +10,26 @@ int main(){
 
 	cout << "Enter the number of process: ";
 	cin >> n;
-	
+
 	cout << "Enter the burst time, arrival time & priority of the process:";
 	for(int i=0; i<n; i++){
 		cin >> bt[i] >> at[i] >> pr[i];
 	}
-	
+
 	for(int i=0; i<n; i++){
 		for(int j=0; j<n; j++){
 			if(at[i]<at[j]){
 				t=at[j];
 				at[j]=at[i];
 				at[i]=t;
-				
+
 				t=bt[j];
 				bt[j]=bt[i];
 				bt[i]=t;
 			}
 		}
 	}
-	
+
 	for(int j=0; i<n; j++){
 		b = b+bt[j];
 		min = bt[k];
@@ -40,11 +40,11 @@ int main(){
 					t=at[k];
 					at[k]=at[i];
 					at[i]=t;
-					
+
 					t=bt[k];
 					bt[k]=bt[i];
 					bt[i]=t;
-					
+
 					t=pr[k];
 					pr[k]=pr[i];
 					pr[i]=t;
@@ -63,7 +63,7 @@ int main(){
 		tat[i]=wt[i]+bt[i];
 		awt=awt+wt[i];
 		atat=atat+tat[i];
-		
+
 		cout << i+1 << "\t"<< bt[i] << "\t" << at[i] << "\t" << pr[i] << "\t" << wt[i] << "\t" << tat[i] << endl;
  	}
 	awt=awt/n;

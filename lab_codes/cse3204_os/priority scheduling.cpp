@@ -9,22 +9,29 @@ int main()
     double avg=0,tt=0,end;
    	cout<<"Enter the number of Processes: ";
     cin>>n;
-    
+
+    //arrival time
     for(i=0;i<n;i++)
     {
       cout<<"Enter arrival time of process[" << i << "]: ";
       cin>>a[i];
     }
+
+    //burst time
     for(i=0;i<n;i++)
     {
       cout<<"Enter burst time of process[" << i << "]: ";
       cin>>b[i];
     }
+
+    //priority
     for(i=0;i<n;i++)
     {
       cout<<"Enter priority of process[" << i << "]: ";
       cin>>pr[i];
     }
+
+
     for(i=0;i<n;i++)
         x[i]=b[i];
 
