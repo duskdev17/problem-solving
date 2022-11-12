@@ -10,6 +10,7 @@ int main()
 
     cout<<"Enter the number of Processes: ";  //input
     cin>>n;
+    
     for(i=0; i<n; i++)
     {
         cout<<"Enter arrival time of process: ";  //input
