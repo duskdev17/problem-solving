@@ -25,8 +25,7 @@ int main(){
 
 
 	cout<<"Enter the Arrival time, Burst time for All the processes"<<endl;
-	for(i=0;i<n;i++)
-	{
+	for(i=0;i<n;i++){
 	  cout<<"Arrival time for process "<<i+1<<endl;
 		cin>>at[i];
 		cout<<"Burst time for process "<<i+1<<endl;
@@ -38,26 +37,20 @@ int main(){
 	cin>>time_quantum;
 
 	cout<<"\n\nProcess\t:Turnaround Time:Waiting Time\n\n";
-	for(time=0,i=0;remain!=0;)
-	{
-		if(rt[i]<=time_quantum && rt[i]>0)
-		{
+	for(time=0,i=0;remain!=0;){
+		if(rt[i]<=time_quantum && rt[i]>0){
 			time += rt[i];
 
 			rt[i]=0;
 			temps=1;
 		}
 
-		else if(rt[i]>0)
-		{
+		else if(rt[i]>0){
 			rt[i] -= time_quantum;
-
 			time += time_quantum;
-
 		}
 
-		if(rt[i]==0 && temps==1)
-		{
+		if(rt[i]==0 && temps==1){
 			remain--;
 			//Desplaying the result of wating, turn around time:
 			printf("Process{%d}\t:\t%d\t:\t%d\n",i+1,time-at[i],time-at[i]-bt[i]);
