@@ -1,76 +1,58 @@
-#include <iostream>
-
-/*at = Arrival time,
-bt = Burst time,
-time_quantum= Quantum time
-tat = Turn around time,
-wt = Waiting time*/
-
+#include<iostream>
 using namespace std;
-
-int main(){
-	int i,n,time,remain,temps=0,time_quantum;
-
-	int wt=0,tat=0;
-
-	cout<<"Enter the total number of process="<<endl;
-	cin>>n;
-
-	remain=n;
-	// assigning the number of process to remain variable
-
-	int at[n];
-	int bt[n];
-	int rt[n];
-
-
-	cout<<"Enter the Arrival time, Burst time for All the processes"<<endl;
-	for(i=0;i<n;i++){
-	  cout<<"Arrival time for process "<<i+1<<endl;
-		cin>>at[i];
-		cout<<"Burst time for process "<<i+1<<endl;
-		cin>>bt[i];
-		rt[i]=bt[i];
-	}
-
-	cout<<"Enter the value of time QUANTUM:"<<endl;
-	cin>>time_quantum;
-
-	cout<<"\n\nProcess\t:Turnaround Time:Waiting Time\n\n";
-	for(time=0,i=0;remain!=0;){
-		if(rt[i]<=time_quantum && rt[i]>0){
-			time += rt[i];
-
-			rt[i]=0;
-			temps=1;
-		}
-
-		else if(rt[i]>0){
-			rt[i] -= time_quantum;
-			time += time_quantum;
-		}
-
-		if(rt[i]==0 && temps==1){
-			remain--;
-			//Desplaying the result of wating, turn around time:
-			printf("Process{%d}\t:\t%d\t:\t%d\n",i+1,time-at[i],time-at[i]-bt[i]);
-			cout<<endl;
-
-			wt += time-at[i]-bt[i];
-			tat += time-at[i];
-			temps=0;
-		}
-
-		if(i == n-1)
-			i=0;
-		else if(at[i+1] <= time)
-			i++;
-		else
-			i=0;
-	}
-
-	cout<<"Average waiting time "<<wt*1.0/n<<endl;
-	cout<<"Average turn around time "<<tat*1.0/n<<endl;;
-
-	return 0;
+ 
+int main()
+{
+ 
+  int count,j,n,time,remain,flag=0,time_quantum;
+  int wait_time=0,turnaround_time=0,at[10],bt[10],rt[10];
+  
+  cout << "Enter Total Process: ";
+  cin >> n;
+  
+  remain=n;
+  
+  for(count=0;count<n;count++){
+    cout << "Enter Arrival Time and Burst Time for Process Number " << count+1 << ": ";
+    cin >> at[count] >> bt[count];
+    rt[count]=bt[count];
+  }
+  
+  
+  cout << "Enter Time Quantum:";
+  cin >> time_quantum;
+  
+  
+  cout << "\nProcess\t|Turnaround Time|Waiting Time\n\n";
+  for(time=0,count=0;remain!=0;){
+    if(rt[count]<=time_quantum && rt[count]>0){
+      time+=rt[count];
+      rt[count]=0;
+      flag=1;
+    }
+    
+    else if(rt[count]>0){
+      rt[count]-=time_quantum;
+      time+=time_quantum;
+    }
+    
+    if(rt[count]==0 && flag==1){
+      remain--;
+      cout << "P" << count+1 << "\t|\t" << time-at[count] << "\t|\t" << time-at[count]-bt[count] << "\n";
+      wait_time+=time-at[count]-bt[count];
+      turnaround_time+=time-at[count];
+      flag=0;
+    }
+    if(count==n-1)
+      count=0;
+    else if(at[count+1]<=time)
+      count++;
+    else
+      count=0;
+  }
+  cout << "\nAverage Waiting Time=" << wait_time*1.0/n << endl;
+  cout << "Avg Turnaround Time =" << turnaround_time*1.0/n;
+  
+  return 0;
 }
+
