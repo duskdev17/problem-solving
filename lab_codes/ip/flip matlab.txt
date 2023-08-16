@@ -1,0 +1,9 @@
+% Read the target image file
+img = imread('leaf.jpg');
+
+% Reverse the order of the element in each column
+vertFlip_img = flip(img, 1);
+
+% Display the vertically flipped image
+imshow(vertFlip_img);
+title('Vertically flipped image');
